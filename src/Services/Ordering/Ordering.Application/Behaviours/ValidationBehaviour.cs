@@ -10,6 +10,9 @@ namespace Ordering.Application.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
+        //where TRequest : IRequest<TResponse>
+        //where TRequest : MediatR.IRequest<TResponse>
+        //where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -31,6 +34,11 @@ namespace Ordering.Application.Behaviours
                     throw new ValidationException(failures);
             }
             return await next();
+        }
+
+        public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

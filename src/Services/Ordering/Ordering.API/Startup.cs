@@ -31,20 +31,25 @@ namespace Ordering.API
             services.AddInfrastructureServices(Configuration);
 
             // MassTransit-RabbitMQ Configuration
-            services.AddMassTransit(config => {
+            services.AddMassTransit(config =>
+            {
 
                 config.AddConsumer<BasketCheckoutConsumer>();
 
-                config.UsingRabbitMq((ctx, cfg) => {
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
                     cfg.Host(Configuration["EventBusSettings:HostAddress"]);
-                    cfg.UseHealthCheck(ctx);
+                    //cfg.UseHealthCheck(ctx);
 
-                    cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c => {
+                    cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
+                    {
                         c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
                     });
                 });
             });
-            services.AddMassTransitHostedService();
+            //services.AddMassTransitHostedService();
+            //
+            //services.AddMassTransitHostedService();
 
             // General Configuration
             services.AddScoped<BasketCheckoutConsumer>();
