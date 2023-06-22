@@ -9,9 +9,9 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
-                    <li class="breadcrumb-item"><a asp-page="Cart">Cart</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">CheckOut</li>
+                    <li class="breadcrumb-item"><a asp-page="Index">Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a asp-page="Cart">Sepetim</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ödeme</li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Your cart</span>
+                <span class="text-muted">Sepetiniz</span>
                 <span class="badge badge-secondary badge-pill">@Model.Cart.Items.Count</span>
             </h4>
             <ul class="list-group mb-3">
@@ -39,49 +39,40 @@
                 }
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (USD)</span>
+                    <span>Toplam (TRY)</span>
                     <strong>$@Model.Cart.TotalPrice</strong>
                 </li>
             </ul>
-
-            <form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                    </div>
-                </div>
-            </form>
         </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
             <form asp-page-handler="CheckOut" method="post" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label asp-for="Order.FirstName" for="firstName">First name</label>
+                        <label asp-for="Order.FirstName" for="firstName">İsim</label>
                         <input asp-for="Order.FirstName" type="text" class="form-control" id="firstName" placeholder="" value="" required>
                         <div class="invalid-feedback">
-                            Valid first name is required.
+                            Geçerli bir isim giriniz.
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label asp-for="Order.LastName" for="lastName">Last name</label>
+                        <label asp-for="Order.LastName" for="lastName">Soyisim</label>
                         <input asp-for="Order.LastName" type="text" class="form-control" id="lastName" placeholder="" value="" required>
                         <div class="invalid-feedback">
-                            Valid last name is required.
+                            Geçerli bir soyisim giriniz.
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="username">Username</label>
+                    <label for="username">Kullanıcı adı</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text">@@</span>
                         </div>
                         <input type="text" class="form-control" id="username" placeholder="Username" required>
                         <div class="invalid-feedback" style="width: 100%;">
-                            Your username is required.
+                            Kullanıcı adınız gereklidir.
                         </div>
                     </div>
                 </div>
@@ -90,49 +81,49 @@
                     <label asp-for="Order.EmailAddress" for="email">Email <span class="text-muted">(Optional)</span></label>
                     <input asp-for="Order.EmailAddress" type="email" class="form-control" id="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
+                        Geçerli bir email giriniz.
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Order.AddressLine" for="address">Address</label>
+                    <label asp-for="Order.AddressLine" for="address">Adres</label>
                     <input asp-for="Order.AddressLine" type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                     <div class="invalid-feedback">
-                        Please enter your shipping address.
+                        Lütfen fatura için adres giriniz.
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                    <label for="address2">Adres Satırı 2 <span class="text-muted">(Opsiyonel)</span></label>
                     <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
                 </div>
 
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <label asp-for="Order.Country" for="country">Country</label>
+                        <label asp-for="Order.Country" for="country">Ülke</label>
                         <select asp-for="Order.Country" class="custom-select d-block w-100" id="country" required>
-                            <option value="">Choose...</option>
-                            <option>United States</option>
+                            <option value="">Ülke</option>
+                            <option>Türkiye</option>
                         </select>
                         <div class="invalid-feedback">
-                            Please select a valid country.
+                            Lütfen geçerli bir ülke giriniz.
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label asp-for="Order.State" for="state">State</label>
+                        <label asp-for="Order.State" for="state">İl</label>
                         <select asp-for="Order.State" class="custom-select d-block w-100" id="state" required>
-                            <option value="">Choose...</option>
-                            <option>California</option>
+                            <option value="">Seçiniz...</option>
+                            <option>İzmir</option>
                         </select>
                         <div class="invalid-feedback">
-                            Please provide a valid state.
+                            Lütfen geçerli bir il adı giriniz.
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <label asp-for="Order.ZipCode" for="zip">Zip</label>
+                        <label asp-for="Order.ZipCode" for="zip">Posta kodu</label>
                         <input asp-for="Order.ZipCode" type="text" class="form-control" id="zip" placeholder="" required>
                         <div class="invalid-feedback">
-                            Zip code required.
+                            Lütfen geçerli bir posta kodu girniz.
                         </div>
                     </div>
                 </div>
@@ -152,52 +143,48 @@
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
                         <input asp-for="Order.PaymentMethod" id="credit" name="paymentMethod" type="radio" value="Credit card" class="custom-control-input" checked required>
-                        <label asp-for="Order.PaymentMethod" class="custom-control-label" for="credit">Credit card</label>
+                        <label asp-for="Order.PaymentMethod" class="custom-control-label" for="credit">Kredı kartı</label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input asp-for="Order.PaymentMethod" id="debit" name="paymentMethod" type="radio" value="Debit card" class="custom-control-input" required>
-                        <label asp-for="Order.PaymentMethod" class="custom-control-label" for="debit">Debit card</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input asp-for="Order.PaymentMethod" id="paypal" name="paymentMethod" type="radio" value="Paypal" class="custom-control-input" required>
-                        <label asp-for="Order.PaymentMethod" class="custom-control-label" for="paypal">Paypal</label>
+                        <label asp-for="Order.PaymentMethod" class="custom-control-label" for="debit">Banka kartı</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label asp-for="Order.CardName" for="cc-name">Name on card</label>
+                        <label asp-for="Order.CardName" for="c-name">Kart üzerindeki isim</label>
                         <input asp-for="Order.CardName" type="text" class="form-control" id="cc-name" placeholder="" required>
-                        <small class="text-muted">Full name as displayed on card</small>
+                        <small class="text-muted">Kartta görünen ismi giriniz.</small>
                         <div class="invalid-feedback">
-                            Name on card is required
+                            Kartta görünen isim gereklidir..
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label asp-for="Order.CardNumber" for="cc-number">Credit card number</label>
+                        <label asp-for="Order.CardNumber" for="cc-number">Kredi kartı</label>
                         <input asp-for="Order.CardNumber" type="text" class="form-control" id="cc-number" placeholder="" required>
                         <div class="invalid-feedback">
-                            Credit card number is required
+                            Kredi kartı numarısını giriniz.
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                        <label asp-for="Order.Expiration" for="cc-expiration">Expiration</label>
+                        <label asp-for="Order.Expiration" for="cc-expiration">Son kullanım tarihi</label>
                         <input asp-for="Order.Expiration" type="text" class="form-control" id="cc-expiration" placeholder="" required>
                         <div class="invalid-feedback">
-                            Expiration date required
+                            Son kullanım tarihi giriniz.
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label asp-for="Order.CVV" for="cc-expiration">CVV</label>
                         <input asp-for="Order.CVV" type="text" class="form-control" id="cc-cvv" placeholder="" required>
                         <div class="invalid-feedback">
-                            Security code required
+                            Güvenlik kodunu giriniz.
                         </div>
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Checkout Order</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Siparişi gerçekleştir</button>
             </form>
         </div>
     </div>

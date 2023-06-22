@@ -9,8 +9,8 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
-                    <li class="breadcrumb-item"><a asp-page="Product">Product</a></li>
+                    <li class="breadcrumb-item"><a asp-page="Index">Anasayfa</a></li>
+                    <li class="breadcrumb-item"><a asp-page="Product">Ürün</a></li>
                     <li class="breadcrumb-item active" aria-current="page">@Model.Product.Name</li>
                 </ol>
             </nav>
@@ -36,8 +36,8 @@
         <div class="col-12 col-lg-6 add_to_cart_block">
             <div class="card bg-light mb-3">
                 <div class="card-body">
-                    <p class="price">@Model.Product.Price $</p>
-                    <p class="price_discounted">@(Model.Product.Price + 120) $</p>
+                    <!--<p class="price">@Model.Product.Price $</p>-->
+                    <!--<p class="price_discounted">@(Model.Product.Price + 120) $</p>-->
                     <form asp-page-handler="AddToCart" method="post" name="addToCartForm" id="add_cart_form">
                         <div class="form-group">
                             <label for="colors">Color</label>
@@ -101,10 +101,10 @@
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i> Description</div>
                 <div class="card-body">
                     <p class="card-text">
-                        @Model.Product.Summary                        
+                        @Model.Product.Summary
                     </p>
                     <p class="card-text">
-                        @Model.Product.Description                        
+                        @Model.Product.Description
                     </p>
                 </div>
             </div>

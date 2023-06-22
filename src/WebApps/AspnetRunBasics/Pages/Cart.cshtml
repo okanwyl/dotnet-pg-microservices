@@ -9,8 +9,8 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                    <li class="breadcrumb-item"><a asp-page="Index">Anasayfa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sepetim</li>
                 </ol>
             </nav>
         </div>
@@ -25,10 +25,10 @@
                     <thead>
                         <tr>
                             <th scope="col"> </th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Available</th>
-                            <th scope="col" class="text-center">Quantity</th>
-                            <th scope="col" class="text-right">Price</th>
+                            <th scope="col">Biletler</th>
+                            <!--<th scope="col">Boş olanlar</th>-->
+                            <th scope="col" class="text-center">Adet</th>
+                            <th scope="col" class="text-right">Fiyat</th>
                             <th> </th>
                         </tr>
                     </thead>
@@ -68,12 +68,12 @@
         <div class="col mb-2">
             <div class="row">
                 <div class="col-sm-12  col-md-6">
-                    @*<button class="btn btn-lg btn-block btn-danger">Continue Shopping</button>*@
-                    <a asp-page="Product" class="btn btn-lg btn-block btn-success">Continue Shopping</a>
+                    @*<button class="btn btn-lg btn-block btn-danger">Alışverişe devam et</button>*@
+                    <a asp-page="Product" class="btn btn-lg btn-block btn-success">Alışverişe devam et</a>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
-                    @*<button class="btn btn-lg btn-block btn-danger text-uppercase">CheckOut</button>*@
-                    <a asp-page="CheckOut" class="btn btn-lg btn-block btn-danger text-uppercase">CheckOut</a>
+                    @*<button class="btn btn-lg btn-block btn-danger text-uppercase">Ödeme yap</button>*@
+                    <a asp-page="CheckOut" class="btn btn-lg btn-block btn-danger text-uppercase">Ödeme yap</a>
                 </div>
             </div>
         </div>
