@@ -1,12 +1,15 @@
-version: '3.4'
+version: "3.4"
 
 services:
   catalogdb:
     image: mongo
-    
+
   cardb:
     image: mongo
-    
+
+  bookdb:
+    image: mongo
+
   basketdb:
     image: redis:alpine
 
@@ -27,12 +30,18 @@ services:
     build:
       context: .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
-      
+
   car.api:
     image: ${DOCKER_REGISTRY-}carapi
     build:
       context: .
       dockerfile: Services/Car/Dockerfile
+
+  book.api:
+    image: ${DOCKER_REGISTRY-}bookapi
+    build:
+      context: .
+      dockerfile: Services/Book/Dockerfile
 
   basket.api:
     image: ${DOCKER_REGISTRY-}basketapi
@@ -79,6 +88,7 @@ services:
 volumes:
   mongo_data:
   car_data:
+  book_data:
   portainer_data:
   postgres_data:
   pgadmin_data:
