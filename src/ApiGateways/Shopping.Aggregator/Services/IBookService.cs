@@ -4,7 +4,7 @@ using Shopping.Aggregator.Models;
 
 namespace Shopping.Aggregator.Services
 {
-    public interface ICarService
+    public interface IBookService
     {
         Task<IEnumerable<BookModel>> GetBook();
         Task<IEnumerable<BookModel>> GetBookByName(string name);
