@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{76
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{CD1BB72E-8EF1-49B4-9DD7-0398150BF90E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.UnitTests", "Services\Catalog\Catalog.UnitTests\Catalog.UnitTests.csproj", "{4EB3F416-C61B-4551-90FE-8D4E69B4D0DE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{CDEE4DEB-C38B-4D59-BD1C-4595A41AC342}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9A733F6B-AAF2-4C34-9FE2-400339E7EA5E}"
@@ -17,15 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Basket", "Basket", "{3BD1AE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.API", "Services\Basket\Basket.API\Basket.API.csproj", "{D63AAD77-4296-4B35-9EB1-AB92FA5B39F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basket.UnitTests", "Services\Basket\Basket.UnitTests\Basket.UnitTests.csproj", "{2957D3B0-3462-4791-8EA3-973EB236D646}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{5A009D6C-77D9-42DE-ADAC-25C0086F37DE}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.API", "Services\Discount\Discount.API\Discount.API.csproj", "{50317986-E89E-4D39-88C0-6805A5B00C4A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.UnitTests", "Services\Discount\Discount.UnitTests\Discount.UnitTests.csproj", "{05746107-ACAE-49B4-AD4D-5081348B1BB3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discount.Grpc", "Services\Discount\Discount.Grpc\Discount.Grpc.csproj", "{50308519-4E96-4BB1-80B3-96510FBE926C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{CB8F45C3-4316-4465-A123-F5C2FA1D612B}"
 EndProject
