@@ -1,4 +1,4 @@
-version: '3.4'
+version: "3.4"
 
 services:
   catalogdb:
@@ -8,7 +8,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
-  
+
   cardb:
     container_name: cardb
     restart: always
@@ -16,7 +16,15 @@ services:
       - "27016:27017"
     volumes:
       - car_data:/data/db
-  
+
+  bookdb:
+    container_name: bookdb
+    restart: always
+    ports:
+      - "27015:27017"
+    volumes:
+      - book_data:/data/db
+
   basketdb:
     container_name: basketdb
     restart: always
@@ -70,7 +78,7 @@ services:
       - catalogdb
     ports:
       - "8000:80"
-  
+
   car.api:
     container_name: car.api
     environment:
@@ -81,6 +89,17 @@ services:
       - cardb
     ports:
       - "3000:80"
+
+  book.api:
+    container_name: book.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://bookdb:27017"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
+    depends_on:
+      - bookdb
+    ports:
+      - "3001:80"
 
   basket.api:
     container_name: basket.api
@@ -127,12 +146,14 @@ services:
       - "ApiSettings:CatalogUrl=http://catalog.api"
       - "ApiSettings:BasketUrl=http://basket.api"
       - "ApiSettings:CarUrl=http://car.api"
+      - "ApiSettings:BookUrl=http://book.api"
       - "ApiSettings:OrderingUrl=http://ordering.api"
       - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     depends_on:
       - catalog.api
       - basket.api
       - car.api
+      - book.api
       - ordering.api
     ports:
       - "8005:80"
@@ -188,4 +209,3 @@ services:
       - HealthChecksUI__HealthChecks__5__Uri=http://aspnetrunbasics/hc
     ports:
       - "8007:80"
-
