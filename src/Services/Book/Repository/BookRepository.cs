@@ -23,16 +23,16 @@ namespace Book.API.Repository
             return await _context.Books.Find(p => p.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<Entities.Book>> GetBookByBrand(string brand)
+        public async Task<IEnumerable<Entities.Book>> GetBookByPublisher(string publisher)
         {
-            FilterDefinition<Entities.Book> filter = Builders<Entities.Book>.Filter.Eq(p => p.Brand, brand);
+            FilterDefinition<Entities.Book> filter = Builders<Entities.Book>.Filter.Eq(p => p.Publisher, publisher);
 
             return await _context.Books.Find(filter).ToListAsync();
         }
 
-        public async Task<IEnumerable<Entities.Book>> GetBookByModel(string model)
+        public async Task<IEnumerable<Entities.Book>> GetBookByName(string name)
         {
-            FilterDefinition<Entities.Book> filter = Builders<Entities.Book>.Filter.Eq(p => p.Model, model);
+            FilterDefinition<Entities.Book> filter = Builders<Entities.Book>.Filter.Eq(p => p.Name, name);
 
             return await _context.Books.Find(filter).ToListAsync();
         }

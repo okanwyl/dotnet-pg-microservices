@@ -46,9 +46,9 @@ namespace Book.API.Controllers
         [Route("[action]/{category}", Name = "GetBookByModel")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Entities.Book>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBookByModel(string model)
+        public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBookByName(string name)
         {
-            var books = await _repository.GetBookByModel(model);
+            var books = await _repository.GetBookByName(name);
             return Ok(books);
         }
 
@@ -56,12 +56,12 @@ namespace Book.API.Controllers
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(IEnumerable<Entities.Book>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBookByBrand(string brand)
+        public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBookByPublisher(string publisher)
         {
-            var books = await _repository.GetBookByBrand(brand);
+            var books = await _repository.GetBookByPublisher(publisher);
             if (books == null)
             {
-                _logger.LogError($"Products with name: {brand} not found.");
+                _logger.LogError($"Products with name: {publisher} not found.");
                 return NotFound();
             }
 

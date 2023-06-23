@@ -9,10 +9,11 @@ namespace Book.API.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        [BsonElement("Brand")] public string Brand { get; set; }
-        public string Model { get; set; }
+        [BsonElement("Name")] public string Name { get; set; }
+        public string Writer { get; set; }
+        public string Publisher { get; set; }
         public string Year { get; set; }
-        public decimal DrivedCountKm { get; set; }
+        public string Abstract { get; set; }
         public string ImageFile { get; set; }
         public decimal Price { get; set; }
     }
