@@ -91,6 +91,55 @@
       ],
       "UpstreamPathTemplate": "/Order/{userName}",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "car.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "car.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car/GetCarByModel/{model}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "car.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car/GetCarByModel/{model}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car/GetCarByBrand/{brand}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "car.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car/GetCarByBrand/{brand}",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ],
   "GlobalConfiguration": {

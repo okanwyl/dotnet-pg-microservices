@@ -11,8 +11,14 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
-      "FileCacheOptions": { "TtlSeconds": 30 }
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/{id}",
@@ -24,7 +30,10 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": [
+        "GET",
+        "DELETE"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/GetProductByCategory/{category}",
@@ -36,7 +45,9 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/GetProductByCategory/{category}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
     },
     //Basket API
     {
@@ -49,7 +60,10 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/{userName}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": [
+        "GET",
+        "DELETE"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket",
@@ -61,7 +75,9 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket/Checkout",
@@ -73,7 +89,9 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/Checkout",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamHttpMethod": [
+        "POST"
+      ],
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
@@ -93,7 +111,71 @@
         }
       ],
       "UpstreamPathTemplate": "/Order/{userName}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car",
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT"
+      ],
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car/{id}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "DELETE"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car/GetCarByModel/{model}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car/GetCarByModel/{model}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Car/GetCarByBrand/{brand}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3000"
+        }
+      ],
+      "UpstreamPathTemplate": "/Car/GetCarByBrand/{brand}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
     }
   ],
   "GlobalConfiguration": {
