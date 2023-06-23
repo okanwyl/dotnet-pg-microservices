@@ -44,6 +44,7 @@ namespace Book.API.Data
                 {
                     Id = "602d2149e773f2a3990b47f5",
                     Name = "Bana Rağmen",
+                    Writer ="Gülten Dayıoğlu",
                     Publisher = "Masa Kitap",
                     Price = 53,
                     Year = "2022",
