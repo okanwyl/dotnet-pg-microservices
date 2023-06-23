@@ -1,6 +1,6 @@
 namespace Shopping.Aggregator.Models
 {
-    public class CarModel
+    public class BookModel
     { 
         public string Id { get; set; }
 
