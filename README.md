@@ -79,7 +79,7 @@ Aşağıdaki özellikleri **Eventim** üzerinden uyguladık.
 Aşağıdaki araçlara ihtiyacınız olacak:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- [.Net Core 5 or later](https://dotnet.microsoft.com/download/dotnet-core/5)
+- [.Net Core 7 or later](https://dotnet.microsoft.com/download/dotnet-core/7)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ### Yükleme
