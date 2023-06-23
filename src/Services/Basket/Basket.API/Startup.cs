@@ -47,9 +47,6 @@ namespace Basket.API
             services.AddAutoMapper(typeof(Startup));
 
             // Grpc Configuration
-            //services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>
-            //           (o => o.Address = new Uri(Configuration["GrpcSettings:DiscountUrl"]));
-            //services.AddScoped<DiscountGrpcService>();
 
             // MassTransit-RabbitMQ Configuration
             // services.AddMassTransit(config =>
@@ -60,7 +57,6 @@ namespace Basket.API
             //         cfg.UseHealthCheck(ctx);
             //     });
             // });
-            // services.AddMassTransitHostedService();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -7,7 +7,6 @@ namespace Ordering.Domain.Entities
     {
         public string UserName { get; set; }
 
-        [Column(TypeName = "decimal(18,4)")]
         public decimal TotalPrice { get; set; }
 
         // BillingAddress

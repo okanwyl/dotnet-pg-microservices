@@ -13,6 +13,7 @@ using Ordering.Application;
 using Ordering.Infrastructure;
 using Ordering.Infrastructure.Persistence;
 
+
 namespace Ordering.API
 {
     public class Startup
@@ -39,7 +40,7 @@ namespace Ordering.API
                 config.UsingRabbitMq((ctx, cfg) =>
                 {
                     cfg.Host(Configuration["EventBusSettings:HostAddress"]);
-                    //cfg.UseHealthCheck(ctx);
+                    cfg.UseHealthCheck(ctx);
 
                     cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
                     {
@@ -49,7 +50,7 @@ namespace Ordering.API
             });
             //services.AddMassTransitHostedService();
             //
-            //services.AddMassTransitHostedService();
+            services.AddMassTransitHostedService();
 
             // General Configuration
             services.AddScoped<BasketCheckoutConsumer>();
