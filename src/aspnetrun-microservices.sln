@@ -59,9 +59,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Car", "Car", "{DE94D6DA-A5F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car", "Services\Car\Car.csproj", "{996687BA-838E-4D75-9DA2-66D16E20249D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Book", "Book", "{DE94D6DA-A5FE-3E6B-A637-EAF54505A077}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Book", "Book", "{DE94D6DA-A5FE-3E6B-A637-EAF54505A877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book", "Services\Book\Book.csproj", "{996687BA-838E-4D75-9DA3-66D16E20249D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book", "Services\Book\Book.csproj", "{996687BA-838E-4D75-9DA3-66D16E20248D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
