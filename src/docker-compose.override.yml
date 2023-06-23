@@ -16,7 +16,14 @@ services:
       - "27016:27017"
     volumes:
       - car_data:/data/db
-  
+ 
+  housedb:
+    container_name: housedb
+    restart: always
+    ports:
+      - "27100:27017"
+    volumes:
+      - house_data:/data/db
   basketdb:
     container_name: basketdb
     restart: always
@@ -81,6 +88,16 @@ services:
       - cardb
     ports:
       - "3000:80"
+  house.api:
+    container_name: house.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString=mongodb://housedb:27100"
+      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
+    depends_on:
+      - housedb
+    ports:
+      - "3000:80"
 
   basket.api:
     container_name: basket.api
@@ -127,12 +144,14 @@ services:
       - "ApiSettings:CatalogUrl=http://catalog.api"
       - "ApiSettings:BasketUrl=http://basket.api"
       - "ApiSettings:CarUrl=http://car.api"
+      - "ApiSettings:HouseUrl=http://house.api"
       - "ApiSettings:OrderingUrl=http://ordering.api"
       - "ElasticConfiguration:Uri=http://elasticsearch:9200"
     depends_on:
       - catalog.api
       - basket.api
       - car.api
+      - house.api
       - ordering.api
     ports:
       - "8005:80"

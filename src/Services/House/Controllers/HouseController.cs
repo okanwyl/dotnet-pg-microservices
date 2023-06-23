@@ -46,11 +46,7 @@ namespace House.API.Controllers
         [Route("[action]/{category}", Name = "GetHouseByModel")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Entities.House>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Entities.House>>> GetHouseByModel(string model)
-        {
-            var houses = await _repository.GetHouseByModel(model);
-            return Ok(Houses);
-        }
+        
 
         [Route("[action]/{name}", Name = "GetHouseByCity")]
         [HttpGet]
