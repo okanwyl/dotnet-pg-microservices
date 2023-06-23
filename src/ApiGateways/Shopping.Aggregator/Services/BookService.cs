@@ -22,7 +22,7 @@ namespace Shopping.Aggregator.Services
             return await response.ReadContentAs<List<BookModel>>();
         }
 
-        public async Task<BookModel> (string id)
+        public async Task<BookModel> GetBook(string id)
         {
             var response = await _client.GetAsync($"/api/v1/Book/{id}");
             return await response.ReadContentAs<BookModel>();

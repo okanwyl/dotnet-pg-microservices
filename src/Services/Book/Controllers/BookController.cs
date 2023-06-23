@@ -21,13 +21,13 @@ namespace Book.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Entities.Book>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBook()
         {
-            var books = await _repository.GetBooks();
+            var books = await _repository.GetBook();
             return Ok(books);
         }
 
-        [HttpGet("{id:length(24)}", Name = "GetBooks")]
+        [HttpGet("{id:length(24)}", Name = "GetBook")]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(Entities.Book), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Entities.Book>> GetBookById(string id)
@@ -43,7 +43,7 @@ namespace Book.API.Controllers
             return Ok(book);
         }
 
-        [Route("[action]/{category}", Name = "GetBookByModel")]
+        [Route("[action]/{category}", Name = "GetBookByName")]
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<Entities.Book>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Entities.Book>>> GetBookByName(string name)
@@ -52,7 +52,7 @@ namespace Book.API.Controllers
             return Ok(books);
         }
 
-        [Route("[action]/{name}", Name = "GetBookByBrand")]
+        [Route("[action]/{name}", Name = "GetBookByPublisher")]
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(IEnumerable<Entities.Book>), (int)HttpStatusCode.OK)]
@@ -90,7 +90,7 @@ namespace Book.API.Controllers
             return Forbid();
         }
 
-        [HttpDelete("{id:length(24)}", Name = "DeleteProduct")]
+        [HttpDelete("{id:length(24)}", Name = "DeleteBook")]
         [ProducesResponseType(typeof(Entities.Book), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteBookById(string id)
         {

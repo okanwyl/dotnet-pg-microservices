@@ -141,14 +141,13 @@
       "UpstreamPathTemplate": "/Car/GetCarByBrand/{brand}",
       "UpstreamHttpMethod": ["GET"]
     },
-
     {
       "DownstreamPathTemplate": "/api/v1/Book",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "3001"
+          "Host": "book.api",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/Book",
@@ -162,8 +161,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "3001"
+          "Host": "book.api",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/Book/{id}",
@@ -174,8 +173,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "3001"
+          "Host": "book.api",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/Book/GetBookByName/{name}",
@@ -186,8 +185,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": "3001"
+          "Host": "book.api",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/Book/GetBookByPublisher/{publisher}",

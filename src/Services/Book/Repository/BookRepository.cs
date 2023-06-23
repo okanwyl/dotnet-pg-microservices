@@ -13,7 +13,7 @@ namespace Book.API.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<IEnumerable<Entities.Book>> GetBooks()
+        public async Task<IEnumerable<Entities.Book>> GetBook()
         {
             return await _context.Books.Find(p => true).ToListAsync();
         }
