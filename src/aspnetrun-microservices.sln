@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{760C65C2-E3A0-4E84-AEC2-FA5BBF017953}"
 EndProject
@@ -53,11 +53,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Aggregator", "ApiG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Logging", "BuildingBlocks\Common.Logging\Common.Logging.csproj", "{1AF05DE1-57E8-46C5-B783-885E22290E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebStatus", "WebApps\WebStatus\WebStatus.csproj", "{2E153186-BD9A-463E-A54B-29E50B5D00A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebStatus", "WebApps\WebStatus\WebStatus.csproj", "{2E153186-BD9A-463E-A54B-29E50B5D00A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Car", "Car", "{DE94D6DA-A5FE-4E6B-A637-EAF54505A077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car", "Services\Car\Car.csproj", "{996687BA-838E-4D75-9DA2-66D16E20249D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Car", "Services\Car\Car.csproj", "{996687BA-838E-4D75-9DA2-66D16E20249D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "House", "House", "{0223C7AD-B80D-4534-99B4-71C221180863}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "House", "..\House\House.csproj", "{3A8AAEBA-E3EA-4CA7-B056-3BA270054C77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +145,10 @@ Global
 		{996687BA-838E-4D75-9DA2-66D16E20249D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996687BA-838E-4D75-9DA2-66D16E20249D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996687BA-838E-4D75-9DA2-66D16E20249D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8AAEBA-E3EA-4CA7-B056-3BA270054C77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8AAEBA-E3EA-4CA7-B056-3BA270054C77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8AAEBA-E3EA-4CA7-B056-3BA270054C77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8AAEBA-E3EA-4CA7-B056-3BA270054C77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +177,8 @@ Global
 		{2E153186-BD9A-463E-A54B-29E50B5D00A2} = {E0EF4167-04FA-4258-A4D3-A6E26D457B2E}
 		{DE94D6DA-A5FE-4E6B-A637-EAF54505A077} = {760C65C2-E3A0-4E84-AEC2-FA5BBF017953}
 		{996687BA-838E-4D75-9DA2-66D16E20249D} = {DE94D6DA-A5FE-4E6B-A637-EAF54505A077}
+		{0223C7AD-B80D-4534-99B4-71C221180863} = {760C65C2-E3A0-4E84-AEC2-FA5BBF017953}
+		{3A8AAEBA-E3EA-4CA7-B056-3BA270054C77} = {0223C7AD-B80D-4534-99B4-71C221180863}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88FFFC32-4AC5-49E1-B00B-EC5AA024BE5E}
