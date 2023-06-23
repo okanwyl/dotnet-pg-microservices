@@ -30,12 +30,7 @@ namespace House.API.Repository
             return await _context.House.Find(filter).ToListAsync();
         }
 
-        public async Task<IEnumerable<Entities.House>> GetHouseByModel(string model)
-        {
-            FilterDefinition<Entities.House> filter = Builders<Entities.House>.Filter.Eq(p => p.Model, model);
-
-            return await _context.House.Find(filter).ToListAsync();
-        }
+        
 
         public async Task CreateHouse(Entities.House house)
         {
