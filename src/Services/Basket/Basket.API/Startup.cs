@@ -1,4 +1,5 @@
 //using Basket.API.GrpcServices;
+
 using Basket.API.Repositories;
 using Basket.API.Repositories.Interfaces;
 //using Discount.Grpc.Protos;
@@ -15,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 //using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
+
 //using System.Collections.Generic;
 //using System.Linq;
 //using System.Threading.Tasks;
@@ -50,15 +52,15 @@ namespace Basket.API
             //services.AddScoped<DiscountGrpcService>();
 
             // MassTransit-RabbitMQ Configuration
-            services.AddMassTransit(config =>
-            {
-                config.UsingRabbitMq((ctx, cfg) =>
-                {
-                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
-                    cfg.UseHealthCheck(ctx);
-                });
-            });
-            services.AddMassTransitHostedService();
+            // services.AddMassTransit(config =>
+            // {
+            //     config.UsingRabbitMq((ctx, cfg) =>
+            //     {
+            //         cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+            //         cfg.UseHealthCheck(ctx);
+            //     });
+            // });
+            // services.AddMassTransitHostedService();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -67,7 +69,7 @@ namespace Basket.API
             });
 
             services.AddHealthChecks()
-                    .AddRedis(Configuration["CacheSettings:ConnectionString"], "Redis Health", HealthStatus.Degraded);
+                .AddRedis(Configuration["CacheSettings:ConnectionString"], "Redis Health", HealthStatus.Degraded);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
