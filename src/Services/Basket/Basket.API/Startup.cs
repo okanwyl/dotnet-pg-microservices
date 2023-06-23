@@ -49,14 +49,14 @@ namespace Basket.API
             // Grpc Configuration
 
             // MassTransit-RabbitMQ Configuration
-            // services.AddMassTransit(config =>
-            // {
-            //     config.UsingRabbitMq((ctx, cfg) =>
-            //     {
-            //         cfg.Host(Configuration["EventBusSettings:HostAddress"]);
-            //         cfg.UseHealthCheck(ctx);
-            //     });
-            // });
+            services.AddMassTransit(config =>
+            {
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+                    cfg.UseHealthCheck(ctx);
+                });
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
