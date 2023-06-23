@@ -148,13 +148,14 @@
       "UpstreamPathTemplate": "/Car/GetCarByBrand/{brand}",
       "UpstreamHttpMethod": ["GET"]
     },
+
     {
       "DownstreamPathTemplate": "/api/v1/Book",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "3000"
+          "Port": "3001"
         }
       ],
       "UpstreamPathTemplate": "/Book",
@@ -169,34 +170,34 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "3000"
+          "Port": "3001"
         }
       ],
       "UpstreamPathTemplate": "/Book/{id}",
       "UpstreamHttpMethod": ["GET", "DELETE"]
     },
     {
-      "DownstreamPathTemplate": "/api/v1/Book/GetBookByModel/{model}",
+      "DownstreamPathTemplate": "/api/v1/Book/GetBookByName/{name}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "3000"
+          "Port": "3001"
         }
       ],
-      "UpstreamPathTemplate": "/Book/GetBookByModel/{model}",
+      "UpstreamPathTemplate": "/Book/GetBookByName/{name}",
       "UpstreamHttpMethod": ["GET"]
     },
     {
-      "DownstreamPathTemplate": "/api/v1/Book/GetBookByBrand/{brand}",
+      "DownstreamPathTemplate": "/api/v1/Book/GetBookByPublisher/{publisher}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "3000"
+          "Port": "3001"
         }
       ],
-      "UpstreamPathTemplate": "/Book/GetBookByBrand/{brand}",
+      "UpstreamPathTemplate": "/Book/GetBookByPublisher/{publisher}",
       "UpstreamHttpMethod": ["GET"]
     }
   ],

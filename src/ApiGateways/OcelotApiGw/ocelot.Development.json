@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": ["GET", "POST", "PUT"],
       "FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
@@ -23,7 +23,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": ["GET", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Catalog/GetProductByCategory/{category}",
@@ -35,7 +35,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Catalog/GetProductByCategory/{category}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": ["GET"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket/{userName}",
@@ -47,7 +47,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/{userName}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": ["GET", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket",
@@ -59,7 +59,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket",
-      "UpstreamHttpMethod": [ "POST" ]
+      "UpstreamHttpMethod": ["POST"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Basket/Checkout",
@@ -71,7 +71,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Basket/Checkout",
-      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamHttpMethod": ["POST"],
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
@@ -90,7 +90,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Order/{userName}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": ["GET"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Car",
@@ -102,7 +102,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Car",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+      "UpstreamHttpMethod": ["GET", "POST", "PUT"],
       "FileCacheOptions": { "TtlSeconds": 30 }
     },
     {
@@ -115,7 +115,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Car/{id}",
-      "UpstreamHttpMethod": [ "GET", "DELETE" ]
+      "UpstreamHttpMethod": ["GET", "DELETE"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Car/GetCarByModel/{model}",
@@ -127,7 +127,7 @@
         }
       ],
       "UpstreamPathTemplate": "/Car/GetCarByModel/{model}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": ["GET"]
     },
     {
       "DownstreamPathTemplate": "/api/v1/Car/GetCarByBrand/{brand}",
@@ -139,7 +139,59 @@
         }
       ],
       "UpstreamPathTemplate": "/Car/GetCarByBrand/{brand}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": ["GET"]
+    },
+
+    {
+      "DownstreamPathTemplate": "/api/v1/Book",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Book",
+      "UpstreamHttpMethod": ["GET", "POST", "PUT"],
+      "FileCacheOptions": {
+        "TtlSeconds": 30
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Book/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Book/{id}",
+      "UpstreamHttpMethod": ["GET", "DELETE"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Book/GetBookByName/{name}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Book/GetBookByName/{name}",
+      "UpstreamHttpMethod": ["GET"]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/Book/GetBookByPublisher/{publisher}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "3001"
+        }
+      ],
+      "UpstreamPathTemplate": "/Book/GetBookByPublisher/{publisher}",
+      "UpstreamHttpMethod": ["GET"]
     }
   ],
   "GlobalConfiguration": {
