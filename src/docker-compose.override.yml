@@ -50,23 +50,13 @@ services:
   pgadmin:
     container_name: pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
-      - PGADMIN_DEFAULT_PASSWORD=admin1234
+      - PGADMIN_DEFAULT_EMAIL=admin@egeuniversity.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     restart: always
     ports:
       - "5050:80"
     volumes:
       - pgadmin_data:/root/.pgadmin
-
-  portainer:
-    container_name: portainer
-    restart: always
-    ports:
-      - "8080:8000"
-      - "9000:9000"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
 
   catalog.api:
     container_name: catalog.api
@@ -139,8 +129,8 @@ services:
     ports:
       - "8010:80"
 
-  shopping.aggregator:
-    container_name: shopping.aggregator
+  aggregator:
+    container_name: aggregator
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ApiSettings:CatalogUrl=http://catalog.api"
@@ -157,20 +147,6 @@ services:
       - ordering.api
     ports:
       - "8005:80"
-
-  aspnetrunbasics:
-    container_name: aspnetrunbasics
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - "ApiSettings:GatewayAddress=http://ocelotapigw"
-      - "ElasticConfiguration:Uri=http://elasticsearch:9200"
-    depends_on:
-      - ocelotapigw
-      - catalog.api
-      - basket.api
-      - ordering.api
-    ports:
-      - "8006:80"
 
   elasticsearch:
     container_name: elasticsearch
@@ -204,10 +180,10 @@ services:
       - HealthChecksUI__HealthChecks__3__Name=Ordering Health 
       - HealthChecksUI__HealthChecks__3__Uri=http://ordering.api/hc
       - HealthChecksUI__HealthChecks__4__Name=Aggregator Health
-      - HealthChecksUI__HealthChecks__4__Uri=http://shopping.aggregator/hc
-      - HealthChecksUI__HealthChecks__5__Name=Web UI Health
-      - HealthChecksUI__HealthChecks__5__Uri=http://aspnetrunbasics/hc
-      - HealthChecksUI__HealthChecks__6__Name=Car api Health
+      - HealthChecksUI__HealthChecks__4__Uri=http://aggregator/hc
+      - HealthChecksUI__HealthChecks__6__Name=Car API Health
       - HealthChecksUI__HealthChecks__6__Uri=http://car.api/hc
+      - HealthChecksUI__HealthChecks__7__Name=Book API Health
+      - HealthChecksUI__HealthChecks__7__Uri=http://book.api/hc
     ports:
       - "8007:80"

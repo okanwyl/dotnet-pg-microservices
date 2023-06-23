@@ -1,3 +1,6 @@
+using System;
+using System.Net.Http;
+using Aggregator.Services;
 using Common.Logging;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
@@ -11,11 +14,8 @@ using Microsoft.OpenApi.Models;
 using Polly;
 using Polly.Extensions.Http;
 using Serilog;
-using Shopping.Aggregator.Services;
-using System;
-using System.Net.Http;
 
-namespace Shopping.Aggregator
+namespace Aggregator
 {
     public class Startup
     {
@@ -48,17 +48,31 @@ namespace Shopping.Aggregator
                 .AddHttpMessageHandler<LoggingDelegatingHandler>()
                 .AddPolicyHandler(GetRetryPolicy())
                 .AddPolicyHandler(GetCircuitBreakerPolicy());
+            
+            services.AddHttpClient<IBookService, BookService>(c =>
+                c.BaseAddress = new Uri(Configuration["ApiSettings:BookUrl"]))
+                .AddHttpMessageHandler<LoggingDelegatingHandler>()
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
+            
+            services.AddHttpClient<ICarService, CarService>(c =>
+                c.BaseAddress = new Uri(Configuration["ApiSettings:CarUrl"]))
+                .AddHttpMessageHandler<LoggingDelegatingHandler>()
+                .AddPolicyHandler(GetRetryPolicy())
+                .AddPolicyHandler(GetCircuitBreakerPolicy());
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shopping.Aggregator", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Aggregator", Version = "v1" });
             });
 
             services.AddHealthChecks()
                 .AddUrlGroup(new Uri($"{Configuration["ApiSettings:CatalogUrl"]}/swagger/index.html"), "Catalog.API", HealthStatus.Degraded)
                 .AddUrlGroup(new Uri($"{Configuration["ApiSettings:BasketUrl"]}/swagger/index.html"), "Basket.API", HealthStatus.Degraded)
-                .AddUrlGroup(new Uri($"{Configuration["ApiSettings:OrderingUrl"]}/swagger/index.html"), "Ordering.API", HealthStatus.Degraded);
+                .AddUrlGroup(new Uri($"{Configuration["ApiSettings:OrderingUrl"]}/swagger/index.html"), "Ordering.API", HealthStatus.Degraded)
+                .AddUrlGroup(new Uri($"{Configuration["ApiSettings:CarUrl"]}/swagger/index.html"), "Car.API", HealthStatus.Degraded)
+                .AddUrlGroup(new Uri($"{Configuration["ApiSettings:BookUrl"]}/swagger/index.html"), "Book.API", HealthStatus.Degraded);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,7 +82,7 @@ namespace Shopping.Aggregator
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shopping.Aggregator v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Aggregator v1"));
             }
 
             app.UseRouting();

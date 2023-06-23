@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Shopping.Aggregator.Models
+namespace Aggregator.Models
 {
     public class ShoppingModel
     {

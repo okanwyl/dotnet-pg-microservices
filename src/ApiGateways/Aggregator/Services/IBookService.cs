@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Shopping.Aggregator.Models;
+using Aggregator.Models;
 
-namespace Shopping.Aggregator.Services
+namespace Aggregator.Services
 {
     public interface IBookService
     {

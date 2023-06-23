@@ -1,8 +1,8 @@
-﻿using Shopping.Aggregator.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Aggregator.Models;
 
-namespace Shopping.Aggregator.Services
+namespace Aggregator.Services
 {
     public interface IOrderService
     {

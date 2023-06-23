@@ -1,10 +1,10 @@
-﻿using Shopping.Aggregator.Extensions;
-using Shopping.Aggregator.Models;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Aggregator.Extensions;
+using Aggregator.Models;
 
-namespace Shopping.Aggregator.Services
+namespace Aggregator.Services
 {
     public class BasketService : IBasketService
     {

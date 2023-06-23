@@ -1,7 +1,7 @@
-﻿using Shopping.Aggregator.Models;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Aggregator.Models;
 
-namespace Shopping.Aggregator.Services
+namespace Aggregator.Services
 {
     public interface IBasketService
     {

@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Shopping.Aggregator.Extensions;
-using Shopping.Aggregator.Models;
+using Aggregator.Extensions;
+using Aggregator.Models;
 
-namespace Shopping.Aggregator.Services
+namespace Aggregator.Services
 {
     public class CarService : ICarService
     {
